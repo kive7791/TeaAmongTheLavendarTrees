@@ -11,7 +11,8 @@
 <body>
   <a-scene>
     <!-- Sky input -->
-    <a-sky src="aframe-example-code-main\ImageLab10\Assets\Island_Scene.png"></a-sky>
+    <!-- a-assets pre-loads the image so it should be cleaner and better for the system then a-sky -->
+    <a-assets src="/Assets/Island_Scene.png"></a-assets>
 
     <!-- Purple Rain particle system -->
     <a-entity
