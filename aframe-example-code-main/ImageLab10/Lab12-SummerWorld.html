@@ -5,8 +5,8 @@
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
   <!-- Particle Animation -->
-  <script
-    src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+  <!-- <script
+    src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script> -->
 </head>
 
 <body>
@@ -15,6 +15,8 @@
     <!-- a-assets pre-loads the images -->
     <a-assets>
       <img src="Assets/Scene/Island_Scene.png" id="Background">
+      <img src="Assets/Scene/ibrahim-rifath-sandWwater-unsplash.jpg" id="SandWater">
+      <img src="Assets/Scene/ross-bucher-sand-unsplash.jpg" id="Sand">      
       <img src="Assets/Textures/james-trenda-ice-cream-unsplash.jpg" id="IceCream">
       <img src="Assets/Textures/emily-bernal-plastic-unsplash.jpg" id="Plastic">
       <img src="Assets/Textures/james-wainscoat-waffle-unsplash.jpg" id="Cone">
@@ -23,9 +25,9 @@
     <a-sky src="#Background"></a-sky>
 
     <!-- Create a Purple Rain particle system -->
-    <a-entity
+    <!-- <a-entity
       particle-system="preset: rain; color: #a000ff; particleCount: 3000; size: 0.2; opacity: 0.9; velocityValue: 0 -5 0;">
-    </a-entity>
+    </a-entity> -->
 
 
     <!-- Summer object - Ice Cream -->
@@ -38,6 +40,10 @@
 
     <!-- Summer object - Beach Ball -->
     <a-sphere position="-8 -10 0" radius="1.5" src="#Plastic"></a-sphere>
+
+    <!-- Plane of exsitence -->
+    <a-plane position="0 -10 4" rotation="-90 0 0" width="30" height="30" src="#Sand" repeat="10 10">
+    </a-plane>
 
     <!-- Soft white lighting -->
     <a-entity light="type: directional; color: #ffffff; intensity: 1" position="0 3 -2"></a-entity>
