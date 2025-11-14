@@ -4,9 +4,6 @@
 <head>
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-  <!-- Particle Animation -->
-  <!-- <script
-    src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script> -->
 </head>
 
 <body>
@@ -24,27 +21,21 @@
 
     <a-sky src="#Background"></a-sky>
 
-    <!-- Create a Purple Rain particle system -->
-    <!-- <a-entity
-      particle-system="preset: rain; color: #a000ff; particleCount: 3000; size: 0.2; opacity: 0.9; velocityValue: 0 -5 0;">
-    </a-entity> -->
-
-
     <!-- Summer object - Ice Cream -->
     <!-- DO NOT FORGET # for scr -->
     <!-- Position: x-left/right, y-up/down, z-forward/backward -->
     <a-sphere position="0 0 0" radius="0.5" src="#IceCream"></a-sphere>
     <a-sphere position="0 -0.5 0" radius="0.5" src="#IceCream"></a-sphere>
     <a-sphere position="0 -1 0" radius="0.5" src="#IceCream"></a-sphere>
-    <a-cone position="0 -1 0" rotation="0 180 0" radius="0.30" src="#Cone"></a-cone>
+    <a-cone position="0 -1 0" rotation="0 -90 0" radius="0.30" src="#Cone"></a-cone>
 
     <!-- Summer object - Beach Ball -->
-    <a-sphere position="-8 -8 0" radius="1.5" src="#Plastic"></a-sphere>
+    <a-sphere position="-58 -8 0" radius="1.5" src="#Plastic"></a-sphere>
 
     <!-- Plane of exsitence -->
-    <a-plane position="-15 -10 4" rotation="-90 0 0" width="30" height="30" src="#Sand" repeat="10 10">
+    <a-plane position="-8 -10 4" rotation="-90 0 0" width="30" height="30" src="#Sand" repeat="10 10">
     </a-plane>
-    <a-plane position="-50 -11 4" rotation="-90 0 0" width="50" height="30" src="#SandWater">
+    <a-plane position="-50 -10.1 4" rotation="-90 0 0" width="50" height="30" src="#SandWater">
     </a-plane>
 
     <!-- Soft white lighting -->
@@ -52,7 +43,7 @@
     <a-entity light="type: ambient; color: #e0f7ff; intensity: 0.6"></a-entity>
 
     <!-- Camera -->
-    <a-entity position="2 0 4">
+    <a-entity position="2 0 10">
       <a-camera look-controls="true"></a-camera>
     </a-entity>
 
