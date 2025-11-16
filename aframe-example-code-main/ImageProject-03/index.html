@@ -1,17 +1,24 @@
+<!-- Problem Physics when interacting with other objects not working -->
 <!DOCTYPE html>
 <html>
 
 <head>
-  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+
+  <!-- Physics system -->
+  <script
+    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+  <!-- Extras (kinematic-body + universal-controls) -->
+  <script src="https://unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.min.js"></script>
+
+  <!-- Particle Animation -->
+  <script
+    src="https://unpkg.com/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
 
   <!-- Objects -->
   <script src="objects.js"></script>
-
-  <!-- Physics system -->
-  <script src="https://unpkg.com/aframe-physics-system@4.0.1/dist/aframe-physics-system.min.js"></script>
-  <!-- <script
-    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script> -->
 
   <!-- Movement Script -->
   <script src="movement.js"></script>
@@ -40,47 +47,38 @@
     <a-ground-plane position="0 0 0"></a-ground-plane>
 
     <!-- Stairs -->
-    <a-stair-step position="0 0.5 0"></a-stair-step>
-    <a-stair-step position="5 2 5"></a-stair-step>
+    <a-stair-step position="0 0 0"></a-stair-step>
+    <a-stair-step position="0 2 -2"></a-stair-step>
+    <a-box position="0 1 -2" width="4" height="2" depth="2" src="#StoneBottom" static-body></a-box>
 
     <!-- Different Plane -->
-    <!-- Left-->
-    <a-tea-plane position="-14.45 1.42 -10"></a-tea-plane>
-    <!-- Right -->
-    <a-tea-plane position="14.4 1.42 -10"></a-tea-plane>
-    <!-- Back -->
-    <a-tea-plane position="0 1.42 -15.3"></a-tea-plane>
+    <a-tea-plane position="0 2 -28"></a-tea-plane>
 
     <!-- Light Post -->
-    <!-- Base -->
-    <a-cone position="10 0 10" rotation="0 0 0" radius-bottom="2.5" radius-top=".5" height="1" src="#Metal"
-      static-body></a-cone>
-    <!-- Pole -->
-    <a-cylinder position="10 2.9 10" radius=".5" height="4" src="#Metal"></a-cylinder>
-    <!-- Base Light -->
-    <a-cone position="10 4.9 10" rotation="180 0 0" radius-bottom=".9" radius-top=".5" height="1" src="#Metal"
-      static-body></a-cone>
-    <!-- Light container -->
-    <a-cylinder position="10 5.9 10" radius=".8" height="1.5" transparent="true"></a-cylinder>
-    <!-- Light -->
-    <a-sphere position="10 5.9 10" radius=".4" color="#CBC3E3"></a-sphere>
-    <!-- Top -->
-    <a-cone position="10 6.4 10" rotation="0 0 0" radius-bottom=".9" radius-top=".2" height="1" src="#Metal"
-      static-body></a-cone>
-    <a-sphere position="10 7 10" radius=".2" src="Metal"></a-sphere>
-
+    <a-light-pole position="5 0 .1"></a-light-pole>
 
     <!-- Table -->
-
+    <a-table position="-5 -.1 -3"></a-table>
 
     <!-- Soft white lighting -->
-    <a-entity light="type: directional; color: #ffffff; intensity: 1" position="0 3 -2"></a-entity>
-    <a-entity light="type: ambient; color: #e0f7ff; intensity: 0.6"></a-entity>
+    <!-- E0115F -->
+    <a-entity light="type: ambient; color: #ffffff; intensity: 1"></a-entity>
 
-    <!-- Camera -->
-    <a-entity id="player" position="0 1 10" geometry="primitive: box; width: 0.6; height: 1.7; depth: 0.6"
-      kinematic-body jump log-collisions>
-      <a-camera look-controls="true" wasd-controls="acceleration: 50"></a-camera>
+    <!-- Player -->
+    <a-entity id="player" camera wasd-controls="acceleration: 200" look-controls kinematic-body="radius: 0.6; height: 2"
+      geometry="primitive: box; width: 0.6; height: 2; depth: 0.6" log-collisions position="0 2.3 10"
+      jump="speed: 18; gravity: -9.8">
+      <!-- Particle animation -->
+      <a-entity particle-system="
+          preset: snow;
+          color: '#b7a1f3ff';
+          particleCount: 200;
+          size: 0.1;
+          opacity: 0.5;
+          velocityValue: 0 7 0;
+          maxAge: 10;
+          positionSpread:0 10 0;"></a-entity>
+
     </a-entity>
 
   </a-scene>

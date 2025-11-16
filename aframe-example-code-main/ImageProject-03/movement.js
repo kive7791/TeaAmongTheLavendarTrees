@@ -1,13 +1,13 @@
 AFRAME.registerComponent('jump', {
   schema: {
-    speed:   {type: 'number', default: 5},      // Initial jump speed
+    speed:   {type: 'number', default: 14},      // Initial jump speed
     gravity: {type: 'number', default: -9.8},   // Gravity force
-    groundY: {type: 'number', default: 1}     // Standing height
   },
 
   init: function () {
     this.velocityY = 0;
     this.isJumping = false;
+    this.groundY = null;
 
     this.onKeyDown = this.onKeyDown.bind(this);
     window.addEventListener('keydown', this.onKeyDown);
@@ -18,34 +18,39 @@ AFRAME.registerComponent('jump', {
   },
 
   onKeyDown: function (e) {
-    if (e.code === 'Space' && !this.isJumping) {
-      this.isJumping = true;
-      this.velocityY = this.data.speed;
-    }
+    // Space bar
+    if (e.code !== 'Space') return;
+
+    // Don't start a new jump while already jumping
+    if (this.isJumping) return;
+
+    const pos = this.el.object3D.position;
+
+    // Use the CURRENT height as the ground level
+    this.groundY = pos.y;
+    this.isJumping = true;
+    this.velocityY = this.data.speed;
   },
 
-  tick: function (time, dt) {
-    if (!this.isJumping) return;
+  tick: function (time, delta) {
+    if (!this.isJumping) return; // Do nothing when not jumping
 
-    const data = this.data;
-    const el   = this.el;
-    const dtSec = dt / 1000;
+    const el = this.el;
+    const pos = el.object3D.position;
+    const dt = delta / 1000;
 
     // Apply gravity
-    this.velocityY += data.gravity * dtSec;
+    this.velocityY += this.data.gravity * dt;
 
-    // Update position
-    const pos = el.getAttribute('position');
-    pos.y += this.velocityY * dtSec;
+    // Move the player up/down
+    pos.y += this.velocityY * dt;
 
-    // Check if landed
-    if (pos.y <= data.groundY) {
-      pos.y = data.groundY;
+    // Land on the ground we started from
+    if (pos.y <= this.groundY) {
+      pos.y = this.groundY;
       this.velocityY = 0;
       this.isJumping = false;
     }
-
-    el.setAttribute('position', pos);
   }
 });
 
