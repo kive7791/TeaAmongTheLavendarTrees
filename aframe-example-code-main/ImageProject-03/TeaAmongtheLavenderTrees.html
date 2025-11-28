@@ -39,12 +39,16 @@
     <!-- Sky input -->
     <!-- a-assets pre-loads the images -->
     <a-assets>
+      <!-- Background -->
       <img src="Assets/Scenes/World.png" id="Background">
+      <!-- My Models Textures -->
       <img src="Assets/Textures/Metal.jpeg" id="Metal">
       <img src="Assets/Textures/DarkWood.jpeg" id="DarkWood">
       <img src="Assets/Textures/StoneTop.jpeg" id="StoneTop">
       <img src="Assets/Textures/StoneBottom.jpeg" id="StoneBottom">
       <img src="Assets/Textures/Grass_retouch.png" id="Grass">
+      <!-- Download Models -->
+      <a-asset-item id="Tree" src="Assets/Scenes/Not Mine/Tree/Tree.obj"></a-asset-item>
     </a-assets>
 
     <a-sky src="#Background"></a-sky>
@@ -73,6 +77,9 @@
     <!-- Soft white lighting -->
     <!-- E0115F -->
     <a-entity light="type: ambient; color: #ffffff; intensity: 1"></a-entity>
+
+    <!-- Tree Model -->
+    <a-obj-model position="-5 -.1 -2" material="shader:flat;src:#DarkWood" src="#Tree"></a-obj-model>
 
     <!-- Player -->
     <a-entity id="player" camera wasd-controls="acceleration: 200" look-controls kinematic-body="radius: 0.6; height: 2"

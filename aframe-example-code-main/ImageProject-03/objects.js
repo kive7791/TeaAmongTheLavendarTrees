@@ -223,7 +223,7 @@ AFRAME.registerComponent('light-pole', {
         lightContainer.setAttribute('height', '1.5');
         lightContainer.setAttribute(
             'material',
-            'color: #ddccffff; opacity: 0.25; transparent: true; side: double'
+            'color: #9176c5ff; opacity: 0.25; transparent: true; side: double'
         );
 
         //
@@ -233,8 +233,8 @@ AFRAME.registerComponent('light-pole', {
         light.setAttribute('position', '0 6.7 0');
         light.setAttribute('radius', '0.6');
         light.setAttribute('material', {
-            color: '#b9acdeff',
-            emissive: '#b9acdeff',
+            color: '#7c68b6ff',
+            emissive: '#7c68b6ff',
             emissiveIntensity: 2
         });
 
@@ -246,7 +246,7 @@ AFRAME.registerComponent('light-pole', {
         lampLight.setAttribute('position', '0 5.9 0');
         lampLight.setAttribute('intensity', '3');
         lampLight.setAttribute('distance', '6');     // how far the glow reaches
-        lampLight.setAttribute('color', '#b7a1f3ff');
+        lampLight.setAttribute('color', '#7c68b6ff');
 
         //
         // ground Light
@@ -259,7 +259,7 @@ AFRAME.registerComponent('light-pole', {
         downLight.setAttribute('penumbra', '0.4');
         downLight.setAttribute('intensity', '3');
         downLight.setAttribute('distance', '10');
-        downLight.setAttribute('color', '#b7a1f3ff');
+        downLight.setAttribute('color', '#7c68b6ff');
 
         //
         // topC
